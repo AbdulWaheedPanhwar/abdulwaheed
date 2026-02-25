@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>My Project</title>
+	<style type="text/css">
+		header{
+			display:flex;
+			background-color:#0d3b66; 
+			padding:10px;
+			align-items:center;
+			gap:50%;
+		}
+		header nav{
+			flex-basis:49%;
+			display:flex;
+			gap:10%;
+		}
+		header img{
+			flex-basis:20%;
+			background-color:wheat;
+			border-radius:10px;
+		}
+		header nav a{
+			text-decoration:none;
+			font-size:25px;
+			color:#ffffff; /* white text */
+			font-weight:500;
+			transition: all 0.3s ease; /* smooth hover */
+			padding-bottom:5px;
+		}
+		header nav a:hover{
+			color:#38BDF8; 
+			border-bottom:2px solid #f4d35e;
+		}
+		.hero{
+			width:100%;
+			height:40vw;
+			background-image:url(images/slide1.PNG);
+			background-size:cover;
+			object-fit:coverz;
+		}
+		section{
+			display:grid;
+			grid-template-columns:repeat(5, 1fr);
+			gap:20px;
+			margin-top:10px;
+			background-color:#0F172A;
+			padding:20px;
+		}
+		section .images-events{
+			cursor:pointer;
+			position:relative;
+		    overflow:hidden;
+		    border-radius:12px;
+		    background:#111827;
+		    position:relative;
+		}
+		section .images-events img{
+			width:100%;
+			height:auto;
+			border-radius:5%;
+			object-fit:cover;
+		    transition:0.5s;
+		    object-fit:cover;
+		}
+		section .images-events .overlay{
+			visibility:hidden;
+			opacity:0;
+			background: rgba(17, 24, 39, 0.85);
+			color:#38BDF8; 
+			inset:0;
+			text-align:center;
+			transition:0.5s;
+			position:absolute;
+		}
+		section .images-events:hover img{
+			transform:scale(1.1);
+		}
+		section .images-events:hover .overlay{
+			visibility:visible;
+			opacity:1;
+			position:absolute;
+			/*top:50px;*/
+			font-size:25px;
+			display:flex;
+			align-items:center;
+			justify-content:center;
+			text-align:justify;
+    		font-family:initial;
+		}
+		h1{
+			text-align:center;
+			font-size:30px;
+			color:darkred;
+		}
+		.prinsipal{
+			display:flex;
+			gap:20px;
+			background-color:#0F172A;
+			justify-content:center;
+		}
+		.prinsipal main h2{
+			color:darkred;
+			font-size:30px;
+			text-align:center;
+		}
+		.prinsipal main img{
+			border-radius:10px;
+			transition:0.2s;
+			filter:grayscale(100%);
+			width:100%;
+			height:auto;
+		}
+		.prinsipal main img:hover{
+			transform:translatey(-10px);
+			filter:grayscale(0);
+		}
+		.view_all{
+			display:flex;
+			justify-content:center;
+			padding:20px;
+			background-color:#0F172A;
+		}
+		.view_all button{
+			background-color:darkred;
+			padding:15px;
+			font-size:23px;
+			border-radius:14px;
+			background-color:#1E293B;
+			/*color:#FFFFFF;*/
+			border:none;
+			transition:0.3s;
+		}
+		.view_all button a{
+			text-decoration:none;
+			color:#38BDF8;
+		}
+		.view_all button:hover{
+			background-color:revert;
+		    color: #1E293B;
+		    transform: traznslateY(-3px);
+		}
+		.team_bio{
+			display:grid;
+			grid-template-columns:repeat(8, 1fr);
+			gap:20px;
+			background-color:#f4f4f4;
+		}
+		.team_bio .team{
+			background-color:#111827; 
+			display:flex;
+			flex-direction:column;
+			justify-content:center;
+			align-items:center;
+			padding:10px;
+			border-radius:14px;
+			border:2px solid black;
+			color:#38BDF8;
+		}
+		.team_bio .team:hover{
+			background-color:#1E293B;
+		}
+		.team_bio .team img{
+			width:100%;
+			height:auto;
+			border-radius:50%;
+			transition:0.3s;
+			filter:grayscale(100%);
+		}
+		.team_bio .team img:hover{
+			filter:grayscale(0);
+			transform: scale(1.1);
+		}
+		.team_bio .team p{
+			text-align:center;
+		}
+		.testmanul img{
+			width:100%;
+			height:auto;
+		}
+		.Clients_logoes{
+			display:grid;
+			grid-template-columns:repeat(9, 1fr);
+			gap:6%;
+			padding-left:9%;
+			background-color:#111827;
+			justify-content:center;
+			align-items:center;
+		}
+		.Clients_logoes img{
+			object-fit:cover;
+			background-color:wheat;
+			border-radius:10px;
+		}
+		footer{
+			background-color:#111827;
+			padding:20px;
+			margin-top:10px;
+			text-align:center;
+			color:#38BDF8;
+			font-size:30px;
+		}
+		/*Tablate Size*/
+		@media(max-width:1400px){
+			header{
+				display:flex;
+				flex-direction:column;
+			}
+			header nav{
+				display:flex;
+				flex-direction:column;
+				gap:10px;
+				margin-top:10px;
+			}
+			header img{
+				width:100%;
+			}
+			section{
+				display:grid;
+				grid-template-columns:repeat(3, 1fr);
+			}
+			.prinsipal{
+				display:flex;
+				flex-direction:column;
+			}
+			.prinsipal main img{
+				width:100%;
+				height:auto;
+			}
+			.prinsipal main h2{
+				font-size:20px;
+			}
+			.team_bio{
+				display:grid;
+				grid-template-columns:repeat(3, 1fr);
+			}
+			.team_bio .team img:hover{
+				filter:grayscale(0);
+				transform:translateY(10px);
+		}
+		.Clients_logoes{
+			display:grid;
+			grid-template-columns:repeat(3, 1fr);
+			gap:20px;
+		}
+		footer{
+			font-size:20.5px;
+		}
+		}
+		@media(max-width:900px){
+			header{
+				display:flex;
+				flex-direction:column;
+			}
+			header nav{
+				display:flex;
+				flex-direction:column;
+				gap:10px;
+				margin-top:10px;
+			}
+			header img{
+				width:100%;
+			}
+			section{
+				display:grid;
+				grid-template-columns:repeat(2, 1fr);
+			}
+			.prinsipal{
+				display:flex;
+				flex-direction:column;
+			}
+			.prinsipal main img{
+				width:100%;
+				height:auto;
+			}
+			.prinsipal main h2{
+				font-size:20px;
+			}
+			.team_bio{
+				display:grid;
+				grid-template-columns:repeat(2, 1fr);
+			}
+			.team_bio .team img:hover{
+				filter:grayscale(0);
+				transform:translateY(10px);
+		}
+		.Clients_logoes{
+			display:grid;
+			grid-template-columns:repeat(2, 1fr);
+			gap:20px;
+		}
+		footer{
+			font-size:15.5px;
+		}
+		}
+
+		/*Mobile Size*/
+		@media(max-width:600px){
+			header{
+				display:flex;
+				flex-direction:column;
+			}
+			header nav{
+				display:flex;
+				flex-direction:column;
+				gap:10px;
+				margin-top:10px;
+			}
+			header img{
+				width:100%;
+			}
+			section{
+				display:grid;
+				grid-template-columns:1fr;
+			}
+			.prinsipal{
+				display:flex;
+				flex-direction:column;
+			}
+			.prinsipal main img{
+				width:100%;
+				height:auto;
+			}
+			.prinsipal main h2{
+				font-size:20px;
+			}
+			.view_all button{
+				padding:12px;
+				font-size:15px;
+			}
+			.team_bio{
+				display:grid;
+				grid-template-columns:1fr;
+			}
+			.team_bio .team img:hover{
+				filter:grayscale(0);
+				transform:translateY(10px);
+		}
+		.Clients_logoes{
+			display:flex;
+			flex-direction:column;
+			flex-wrap:wrap;
+			gap:20px;
+		}
+		footer{
+			font-size:11.5px;
+		}
+		}
+	</style>
+</head>
+<body>
+
+<!-- Header Section -->
+	<header>
+		<img src="images/logo.png" width="100px">
+		<nav>
+			<a href="index2.html">Home</a>
+			<a href="About_Us.html">About Us</a>
+			<a href="contant">Contact Us</a>
+		</nav>
+	</header>
+	<div class="hero">
+	</div>
+
+<!-- Events Section -->	
+		<h1>Our Latest Events</h1>
+	<section>
+		<div class="images-events">
+			<img src="images/images/unicef.JPG" width="100%" height="100%">
+			<div class="overlay">Strategic Planning Session by UNICEF March 13-14, 2022</div>
+		</div>
+		<div class="images-events">
+			<img src="images/images/css guest.JPG" width="100%" height="100%">
+ 			<div class="overlay">Guest Speaker Session - CSS Preparatory Classes March 19, 2022</div>
+		</div>
+		<div class="images-events">
+			<img src="images/images/lahore BM.JPG" width="100%" height="100%">
+ 			<div class="overlay">LAHORE: Training on Product Development & Branding Techniques March 11, 2022</div>
+		</div>
+		<div class="images-events">
+			<img src="images/images/BM-Lahore.JPG" width="100%" height="100%">
+ 			<div class="overlay">LAHORE: Training on Product Development & Branding Techniques March 17, 2022</div>
+		</div>
+		<div class="images-events">
+			<img src="images/images/closing.JPG" width="100%" height="100%">
+ 			<div class="overlay">Certificate Distribution Ceremony - SDP March 09, 2022</div>
+		</div>
+		<div class="images-events">
+			<img src="images/images/ECE Diploma.JPG" width="100%" height="100%">
+	 		<div class="overlay">Award Ceremony - One Year Diploma in ECE (Batch-III) March 11, 2022</div>
+		</div>
+		<div class="images-events">
+			<img src="images/images/spsc chairman.JPG" width="100%" height="100%">
+ 			<div class="overlay">Chairman SPSC - Guest Speaker Session Feb 11, 2022</div>
+		</div>
+		<div class="images-events">
+			<img src="images/images/lahore-smeda.JPG" width="100%" height="100%">
+ 			<div class="overlay">LAHORE - Training on Business E-Enablement & Digital Marketing Feb 07,2022</div>
+		</div>
+		<div class="images-events">
+			<img src="images/images/smeda peshawar.JPG" width="100%" height="100%">
+ 			<div class="overlay">PESHAWAR: Training on Product Development & Branding Techniques March 04, 2022</div>
+		</div>
+		<div class="images-events">
+ 				<img src="images/images/ece-orientation.JPG" width="100%" height="100%">
+ 				<div class="overlay">One Year Diploma in Early Childhood Education - Orientation Feb 19, 2022</div>
+ 		</div>	
+	</section>
+	<div class="prinsipal">
+		<main>
+			<h2>FOUNDER AND PATRON IN CHIEF</h2>
+			<img src="images/vc_msg2.JPG">
+		</main>
+		<main>
+			<h2>VICE CHANCELLOR'S MESSAGE</h2>
+			<img src="images/VC -Msg-Dr Asif.JPG">
+		</main>
+	</div>
+	<div class="view_all">
+		<button><a href="https://www.facebook.com/sibaedc">VIEW ALL</a></button>
+	</div>
+
+<!-- Our Team Section -->	
+
+	<h1>Our Dedicated Team</h1>
+	<div class="team_bio">
+		<div class="team">
+ 			<img src="images/team/altaf.JPG" width="200">
+ 			<p>Prof. Dr. Altaf Hussain Samo Director EDC</p>
+ 		</div>
+ 		<div class="team">
+ 			<img src="images/team/kamran.JPG" width="200">
+ 			<p>Sayed Kamran Naqvi Deputy Manager EDC</p>
+ 		</div>
+ 		<div class="team">
+ 			<img src="images/team/male (1).JPG" width="200">
+ 			<p>Safdar Hussain Marketing Assistant</p>
+ 		</div>
+ 		<div class="team">
+ 			<img src="images/team/zafar2.JPG" width="200">
+ 			<p>Zafar Iqbal Accounts Officer</p>
+ 		</div>
+ 		<div class="team">
+ 			<img src="images/team/Minahil.JPG" width="200">
+ 			<p>Manahil Shaikh CSS Coordinator</p>
+ 		</div>
+ 		<div class="team">
+ 			<img src="images/team/mujtaba.JPG" width="200">
+ 			<p>Syed Ghulam Mujtaba Program Co-Ordinator</p>
+ 		</div>
+ 		<div class="team">
+ 			<img src="images/team/sarfraz.JPG" width="200">
+ 			<p>Sarfaraz Ahmed IT Coordinator</p>
+ 		</div>
+ 		<div class="team">
+ 			<img src="images/team/male.JPG" width="200">
+ 			<p>Uzair Abdullah Research Associate</p>
+ 		</div>
+	</div>
+	<div class="testmanul">
+		<img src="images/screen.png">
+	</div>
+	<h1>We Worked With Esteemed Clients</h1>
+	<div class="Clients_logoes">
+ 		<img src="images/logos/nadra.jpg">
+ 		<img src="images/logos/gos.png">
+ 		<img src="images/logos/hbl.png">
+ 		<img src="images/logos/mw.png">
+ 		<img src="images/logos/nbp.png">
+ 		<img src="images/logos/sbp.png">
+ 		<img src="images/logos/imgi_1_logo-web.png">
+ 	</div>
+ 	<footer>
+ 		<p>Copyright © Sukkur IBA Executive Development Center - EDC 2017. All rights reserved.</p>
+ 	</footer>
+</body>
+</html>
